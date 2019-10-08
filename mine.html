@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Thimble Sample</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Welcome to Thimble</h1>
+    <p>
+      Make something <strong>amazing</strong> with the web!
+    </p>
+    <table id="table1" border=1>
+      <tr><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td></tr>
+      <tr><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td></tr>
+      <tr><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td></tr>
+      <tr><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td></tr>
+      <tr><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td></tr>
+      <tr><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td></tr>
+      <tr><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td></tr>
+      <tr><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td></tr>
+      <tr><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td><td onclick="dig(this)">1</td></tr>
+    </table>
+    
+    <script>
+    function dig(obj){
+//      console.log("jinduzhi");
+//      console.log(obj.innerHTML  );
+//      console.log(obj.innerHTML.color  );
+//      obj.style.color = "black";
+//      obj.style.background = "white";
+//      
+//      console.log(Math.random(1));
+
+//      if( Math.random(1) > 0.8 ){
+//        obj.innerHTML = "Y"
+//      }else{
+//        obj.innerHTML = "0"
+//      }
+      
+      tab1 = document.getElementById("table1");
+      console.log(tab1.rows[0].cells[0].innerHTML)
+      
+      max_count = 10;
+      count = 0;
+      run_count = 0;
+      
+      for(i=0; i<9; i++){
+        for(j=0; j<9; j++){
+          
+          if( Math.random(1) > 0.85 && count < max_count ){
+            tab1.rows[i].cells[j].innerHTML = "Y";
+            count++;
+          }else if( 81-run_count <= max_count-count ){
+            tab1.rows[i].cells[j].innerHTML = "Y";
+          }else{
+            tab1.rows[i].cells[j].innerHTML = "";
+          }
+          
+          run_count++;
+        }
+      }
+      
+      for(i=0; i<9; i++){
+        for(j=0; j<9; j++){
+
+          if( tab1.rows[i].cells[j].innerHTML == "Y" ){
+            tab1.rows[i].cells[j].style.background = "red";
+          }else{
+            tab1.rows[i].cells[j].style.background = "white";
+          }
+        }
+      }
+      
+    }
+    
+    function init(){
+      
+    }
+    </script>
+  </body>
+</html>
